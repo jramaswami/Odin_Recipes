@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Two Pointer Recipe</title>
+  </head>
+  <body>
+    <h1>Two Pointer Recipe</h1>
+    <h2>Problem</h2>
+    <p>
+      You have a string of ascii characters.  You want to reverse the order of
+      the vowels while leaving the order of the consonants the same.  How can
+      you do it?
+    </p>
+    <h2><del>Solution</del> Recipe</h2>
+    <p>
+      The solution to your problem is the <strong>Two Pointer Recipe</strong>.
+      The Two Pointer Recipe is a simple recipe that can help you solve many
+      LeetCode problems.
+    </p>
+    <p>
+      We will have two pointers, one starting on the left and one starting on
+      the right.  Overall, we will do the following until the left pointer is
+      to the right of the right pointer.
+      <ol>
+        <li>Move the left pointer right to the next vowel.</li>
+        <li>Move the right pointer left to the next vowel.</li>
+        <li>
+          If the left pointer is still to the left of the green arrow, we will
+          swap the vowels to which the pointers point.
+        </li>
+      </ol>
+    </p>
+    <p>
+      Now, a demonstration on a sample string: 'odinproject'.  In the diagrams
+      that follow, our left pointer is the red arrow and the right pointer is
+      the green arrow.  We will initialize them to point to -1 and the 14 (the
+      length of our string), respectively.  This means they point
+      <em>outside</em> the string.
+    </p>
+    <figure>
+      <figcaption>Step 1: Initialize 2 Pointers</figcaption>
+      <img src="images/step1.png" alt="Step 1 diagram">
+    </figure>
+    <p>
+      Following our recipe from above, we move the red arrow right to the
+      next vowel, the 'o'.
+    </p>
+    <figure>
+      <figcaption>Step 2: Move red arrow</figcaption>
+      <img src="images/step2.png" alt="Step 2 diagram">
+    </figure>
+    <p>
+      Now, move the green arrow left to the next vowel, the 'e'.
+    </p>
+    <figure>
+      <figcaption>Step 3: Move green arrow</figcaption>
+      <img src="images/step3.png" alt="Step 3 diagram">
+    </figure>
+    <p>
+      Swap the 'o' and the 'e'.
+    </p>
+    <figure>
+      <figcaption>Step 4: Swap vowels</figcaption>
+      <img src="images/step4.png" alt="Step 4 diagram">
+    </figure>
+    <p>
+      Again, we repeat our steps.  Move the red arrow right to the next vowel.
+    </p>
+    <figure>
+      <figcaption>Step 5: Move red arrow</figcaption>
+      <img src="images/step5.png" alt="Step 5 diagram">
+    </figure>
+    <p>
+      Move the green arrow left to the next vowel.
+    </p>
+    <figure>
+      <figcaption>Step 6: Move green arrow</figcaption>
+      <img src="images/step6.png" alt="Step 6 diagram">
+    </figure>
+    <p>
+      Swap the vowels.
+    </p>
+    <figure>
+      <figcaption>Step 7: Swap vowels</figcaption>
+      <img src="images/step7.png" alt="Step 7 diagram">
+    </figure>
+    <p>
+      We now repeat our steps.  Move the red arrow right to the next vowel.
+    </p>
+    <figure>
+      <figcaption>Step 8: Move red arrow</figcaption>
+      <img src="images/step8.png" alt="Step 8 diagram">
+    </figure>
+    <p>
+      Move the green arrow left to the next vowel.
+    </p>
+    <figure>
+      <figcaption>Step 9: Move green arrow</figcaption>
+      <img src="images/step9.png" alt="Step 9 diagram">
+    </figure>
+    <p>
+      Now something is different.  The red arrow is to the right of the green
+      arrow.  It is now time to stop; we have swapped all the vowels and have
+      our answer.
+    </p>
+    <figure>
+      <figcaption>Step 10: Done!</figcaption>
+      <img src="images/step10.png" alt="Step 10 diagram">
+    </figure>
+    <p>
+        If you want to try this problem out yourself, it is problem 345 on
+        <a href="https://leetcode.com/problems/reverse-vowels-of-a-string/">LeetCode</a>.
+    </p>
+  </body>
+</html>
