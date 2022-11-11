@@ -1,0 +1,24 @@
+.boxed-bad {
+    border: 2px red solid;
+}
+
+.boxed-good {
+    border: 2px green solid;
+}
+
+.word-container {
+    display: flex;
+    padding: 5px 0px;
+}
+
+.word-container div {
+    padding: 2px;
+}
+
+.score {
+    margin-left: 3em;
+}
+
+#sample-run {
+    margin-top: 10px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sliding Window Recipe</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>Sliding Window Recipe</h1>
+<h2>Problem</h2>
+<p>
+You have a string and you want to find the longest substring that has at most
+two vowels in it.
+</p>
+<h2><del>Recipe</del> Solution</h2>
+<p>
+To solve this problem we will be using a recipe related to the two-pointer
+recipe. We will use the left and right pointers to keep track of a sliding
+window, in this case a substring.  We will manipulate our pointers to maintain
+an <em>invariant</em>.  An invariant is just a property that we maintain, in
+this case that we have no more than two vowels in a substring.
+</p>
+<p>
+As an alternative to two pointers, you can also use a deque as the sliding
+window.  This is often easier to code but requires extra memory.
+</p>
+<p>
+This recipe consists of two steps:
+</p>
+<ol>
+<li>
+We move the left pointer of our sliding window to the right until we have
+no more than two vowels.
+</li>
+<li>
+We move the right pointer of the sliding window to the right until we have
+more than two vowels or we have reached the end of the string.
+</li>
+</ol>
+<p>
+We will repeat these two steps until the right pointer has reached the end of
+the string.  While performing the steps we will update the solution each time
+the window contains no more than two vowels.
+<h2>Sample Run</h2>
+<p>
+Here are all the steps for the string 'theodinproject'. The window will be
+green if there are no more than two vowels; otherwise it will be red.
+</p>
+<div id="sample-run">
+
+<div class="word-container"><div></div><div class="boxed-good"></div><div>theodinproject</div><div class="score">Window length: 0&nbsp|&nbsp;&nbsp;Vowel Count: 0&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div></div><div class="boxed-good">t</div><div>heodinproject</div><div class="score">Window length: 1&nbsp|&nbsp;&nbsp;Vowel Count: 0&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div></div><div class="boxed-good">th</div><div>eodinproject</div><div class="score">Window length: 2&nbsp|&nbsp;&nbsp;Vowel Count: 0&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div></div><div class="boxed-good">the</div><div>odinproject</div><div class="score">Window length: 3&nbsp|&nbsp;&nbsp;Vowel Count: 1&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div></div><div class="boxed-good">theo</div><div>dinproject</div><div class="score">Window length: 4&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div></div><div class="boxed-good">theod</div><div>inproject</div><div class="score">Window length: 5&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div></div><div class="boxed-bad">theodi</div><div>nproject</div><div class="score">Window length: 6&nbsp|&nbsp;&nbsp;Vowel Count: 3&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div>t</div><div class="boxed-bad">heodi</div><div>nproject</div><div class="score">Window length: 5&nbsp|&nbsp;&nbsp;Vowel Count: 3&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div>th</div><div class="boxed-bad">eodi</div><div>nproject</div><div class="score">Window length: 4&nbsp|&nbsp;&nbsp;Vowel Count: 3&nbsp|&nbsp;&nbsp;Longest substring: 0</div></div>
+<div class="word-container"><div>the</div><div class="boxed-good">odi</div><div>nproject</div><div class="score">Window length: 3&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 3</div></div>
+<div class="word-container"><div>the</div><div class="boxed-good">odin</div><div>project</div><div class="score">Window length: 4&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 3</div></div>
+<div class="word-container"><div>the</div><div class="boxed-good">odinp</div><div>roject</div><div class="score">Window length: 5&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 3</div></div>
+<div class="word-container"><div>the</div><div class="boxed-good">odinpr</div><div>oject</div><div class="score">Window length: 6&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 3</div></div>
+<div class="word-container"><div>the</div><div class="boxed-bad">odinpro</div><div>ject</div><div class="score">Window length: 7&nbsp|&nbsp;&nbsp;Vowel Count: 3&nbsp|&nbsp;&nbsp;Longest substring: 3</div></div>
+<div class="word-container"><div>theo</div><div class="boxed-good">dinpro</div><div>ject</div><div class="score">Window length: 6&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+<div class="word-container"><div>theo</div><div class="boxed-good">dinproj</div><div>ect</div><div class="score">Window length: 7&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+<div class="word-container"><div>theo</div><div class="boxed-bad">dinproje</div><div>ct</div><div class="score">Window length: 8&nbsp|&nbsp;&nbsp;Vowel Count: 3&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+<div class="word-container"><div>theod</div><div class="boxed-bad">inproje</div><div>ct</div><div class="score">Window length: 7&nbsp|&nbsp;&nbsp;Vowel Count: 3&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+<div class="word-container"><div>theodi</div><div class="boxed-good">nproje</div><div>ct</div><div class="score">Window length: 6&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+<div class="word-container"><div>theodi</div><div class="boxed-good">nprojec</div><div>t</div><div class="score">Window length: 7&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+<div class="word-container"><div>theodi</div><div class="boxed-good">nproject</div><div></div><div class="score">Window length: 8&nbsp|&nbsp;&nbsp;Vowel Count: 2&nbsp|&nbsp;&nbsp;Longest substring: 6</div></div>
+
+</div> <!-- sample-run -->
+</body>
+</html>
+
